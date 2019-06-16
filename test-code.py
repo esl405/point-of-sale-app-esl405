@@ -23,24 +23,25 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] 
 
-name = int(input("Please input values: "))
-
-user_choice = []
-try:
-    while name<(len(products)):
-        user_choice.append(name)
-        name = int(input("Please input values: "))
-    else:
-        print("Please Choose Another Value or 'Quit'")
-        name = int(input("Please input values: "))
-        while name<(len(products)):
-            user_choice.append(name)
-            name = int(input("Please input values: "))
-        else:
-            print("Please Choose Another Value or 'Quit'")
-except ValueError:
-    print (user_choice)
-
+#input logic Test Code
+#name = int(input("Please input values: "))
+#
+#user_choice = []
+#try:
+#    while name<(len(products)):
+#        user_choice.append(name)
+#        name = int(input("Please input values: "))
+#    else:
+#        print("Please Choose Another Value or 'Quit'")
+#        name = int(input("Please input values: "))
+#        while name<(len(products)):
+#            user_choice.append(name)
+#            name = int(input("Please input values: "))
+#        else:
+#            print("Please Choose Another Value or 'Quit'")
+#except ValueError:
+#    print (user_choice)
+#
 #print(len(products))
 #while name<20:
 #    name = int(input("Please input values: "))
@@ -48,3 +49,17 @@ except ValueError:
 #    
 #else:
 #    print (user_choice)    
+
+#Actively Print What is in Input List Test Code
+
+sample_choices=[1, 2, 4]
+#print(sample_choices)
+##print(products)
+#sample_dictionary={i for i in sample_choices} #convert list to dic
+for i in sample_choices if i in products
+    print()
+#
+#subset={key:i for i in sample_dictionary, }
+#bigdict = {'a':1,'b':2,'c':3,'d':4,'z':26} 
+#wanted_keys = ['a', 'b', 'd'] # The keys you want
+#print (dict((k, bigdict[k]) for k in wanted_keys if k in bigdict))

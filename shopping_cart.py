@@ -30,8 +30,7 @@ products = [
 #Receipt
 now = datetime.datetime.now()
 
-def receipt ():
-    print("testing:")
+
     #root=Tk()
     #root.geometry('300x200')
     #Store_Name = Label(None, text='Fake Groceries').pack()
@@ -63,18 +62,18 @@ try:
             print("Please Choose Another Value or 'Quit'")
 except ValueError:
     #print(user_choice)
-    #root=Tk()
-    #root.geometry('300x200')
-    #Store_Name = Label(None, text='Fake Groceries').pack()
-    #Store_Number = Label(None, text='xxx-xxx-xxxx').pack()
-    #Date_Time = Label(None, text=now.isoformat()).pack()
-    #Items_Price = Label(None, text='xxx-xxx-xxxx').pack()
-    #Sub_Total = Label(None, text="Total: " + 'temp').pack()
-    #Tax = Label(None, text="Total: " + 'temp').pack()
-    #Total = Label(None, text="Total: " + 'temp').pack()
-    #End_Message = Label(None, text='Thank You').pack()
-    #root.mainloop()
-    receipt
+    root=Tk()
+    root.geometry('300x200')
+    Store_Name = Label(None, text='Fake Groceries').pack()
+    Store_Number = Label(None, text='xxx-xxx-xxxx').pack()
+    Date_Time = Label(None, text=now.isoformat()).pack()
+    Items_Price = Label(None, text='xxx-xxx-xxxx').pack()
+    Sub_Total = Label(None, text="Total: " + 'temp').pack()
+    Tax = Label(None, text="Total: " + 'temp').pack()
+    Total = Label(None, text="Total: " + 'temp').pack()
+    End_Message = Label(None, text='Thank You').pack()
+    root.mainloop()
+    
 
 
 

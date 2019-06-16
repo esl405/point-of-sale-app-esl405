@@ -24,42 +24,37 @@ products = [
 ] 
 
 #input logic Test Code
-#name = int(input("Please input values: "))
-#
-#user_choice = []
-#try:
-#    while name<(len(products)):
-#        user_choice.append(name)
-#        name = int(input("Please input values: "))
-#    else:
-#        print("Please Choose Another Value or 'Quit'")
-#        name = int(input("Please input values: "))
-#        while name<(len(products)):
-#            user_choice.append(name)
-#            name = int(input("Please input values: "))
-#        else:
-#            print("Please Choose Another Value or 'Quit'")
-#except ValueError:
-#    print (user_choice)
-#
-#print(len(products))
-#while name<20:
-#    name = int(input("Please input values: "))
-#    user_choice.update(user_choice)
-#    
-#else:
-#    print (user_choice)    
 
-#Actively Print What is in Input List Test Code
+product_ids = []
 
-sample_choices=[1, 2, 4]
-#print(sample_choices)
-##print(products)
-#sample_dictionary={i for i in sample_choices} #convert list to dic
-for i in sample_choices if i in products
-    print()
-#
-#subset={key:i for i in sample_dictionary, }
-#bigdict = {'a':1,'b':2,'c':3,'d':4,'z':26} 
-#wanted_keys = ['a', 'b', 'd'] # The keys you want
-#print (dict((k, bigdict[k]) for k in wanted_keys if k in bigdict))
+while True:
+    product_id = input ("Please Input a Porudct Identifier: ")
+    if product_id == "Done":
+        break
+    else:
+        product_ids.append(int(product_id))
+
+Running_total_price = 0
+
+print("_______________")
+print("Grocery Store")
+print("Phone: 45454")
+print("Date and Time")
+print("----------")
+print("purchased items: ")
+for product_id in product_ids:
+    matching_products = [product for product in products if product["id"] == product_id]
+    matching_product = matching_products [0]
+    Running_total_price += matching_product["price"]
+    price_usd= ' (${0:0.2f})'.format(matching_product["price"])
+    print(" + " + matching_product["name"]+ price_usd)
+
+print ("------------")
+Running_total_price_usd = '${0:.2f}'.format(Running_total_price)
+print("Running Total: " + str(Running_total_price_usd))
+tax_owed = Running_total_price * 0.08875
+tax_owed_usd = '${0:.2f}'.format(tax_owed)
+print("Taxes: " + str(tax_owed_usd))
+total_owed = Running_total_price+tax_owed
+total_owed_usd= '${0:.2f}'.format(total_owed)
+print("Total: " + str(total_owed_usd))

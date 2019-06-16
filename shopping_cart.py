@@ -30,50 +30,113 @@ products = [
 #Receipt
 now = datetime.datetime.now()
 
-
-    #root=Tk()
-    #root.geometry('300x200')
-    #Store_Name = Label(None, text='Fake Groceries').pack()
-    #Store_Number = Label(None, text='xxx-xxx-xxxx').pack()
-    #Date_Time = Label(None, text=now.isoformat()).pack()
-    #Items_Price = Label(None, text='xxx-xxx-xxxx').pack()
-    #Sub_Total = Label(None, text="Total: " + 'temp').pack()
-    #Tax = Label(None, text="Total: " + 'temp').pack()
-    #Total = Label(None, text="Total: " + 'temp').pack()
-    #End_Message = Label(None, text='Thank You').pack()
-    #root.mainloop()
-
-
 #User Input
-name = int(input("Please input values: "))
 
-user_choice = []
-try:
-    while name<(len(products)):
-        user_choice.append(name)
-        name = int(input("Please input values: "))
+product_ids = []
+
+while True:
+    product_id = input ("Please Input a Product Identifier or Done: ")
+    if product_id == "Done":
+        break
     else:
-        print("Please Choose Another Value or 'Quit'")
-        name = int(input("Please input values: "))
-        while name<(len(products)):
-            user_choice.append(name)
-            name = int(input("Please input values: "))
-        else:
-            print("Please Choose Another Value or 'Quit'")
-except ValueError:
-    #print(user_choice)
-    root=Tk()
-    root.geometry('300x200')
-    Store_Name = Label(None, text='Fake Groceries').pack()
-    Store_Number = Label(None, text='xxx-xxx-xxxx').pack()
-    Date_Time = Label(None, text=now.isoformat()).pack()
-    Items_Price = Label(None, text='xxx-xxx-xxxx').pack()
-    Sub_Total = Label(None, text="Total: " + 'temp').pack()
-    Tax = Label(None, text="Total: " + 'temp').pack()
-    Total = Label(None, text="Total: " + 'temp').pack()
-    End_Message = Label(None, text='Thank You').pack()
-    root.mainloop()
-    
+        product_ids.append(int(product_id))
+
+Running_total_price = 0
+
+print("______Customer Copy__________")
+print("ESL405 Groceries")
+print("Phone: 800-PYT-2335")
+print(now.strftime("%A, %B, %d, %Y at %I: %M, %p"))
+print("_____________________________")
+print("Purchased Items: ")
+for product_id in product_ids:
+    matching_products = [product for product in products if product["id"] == product_id]
+    matching_product = matching_products [0]
+    Running_total_price += matching_product["price"]
+    price_usd= ' (${0:0.2f})'.format(matching_product["price"])
+    print(" + " + matching_product["name"]+ price_usd)
+
+print ("_____________________________")
+Running_total_price_usd = '${0:.2f}'.format(Running_total_price)
+print("Running Total: " + str(Running_total_price_usd))
+tax_owed = Running_total_price * 0.08875
+tax_owed_usd = '${0:.2f}'.format(tax_owed)
+print("Taxes: " + str(tax_owed_usd))
+total_owed = Running_total_price+tax_owed
+total_owed_usd= '${0:.2f}'.format(total_owed)
+print("Total: " + str(total_owed_usd))
+print("Thank you.")
+
+root=Tk()
+root.geometry('500x1000')
+root.title("Store Copy")
+Store_Name = Label(None, text='ESL405 Groceries').pack()
+Store_Number = Label(None, text='800-PYT-2335').pack()
+Date_Time = Label(None, text=now.strftime("%A, %B, %d, %Y at %I: %M, %p")).pack()
+Item_number = Label(None, text="Total Items: " + str(len(product_ids))).pack()
+Sub_Total = Label(None, text="Running Total: " + str(Running_total_price_usd)).pack()
+Tax = Label(None, text="Taxes: " + str(tax_owed_usd)).pack()
+Total = Label(None, text="Total: " + str(total_owed_usd)).pack()
+End_Message = Label(None, text='Thank You').pack()
+root.mainloop()
+
+
+
+
+
+
+
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#product_id = int(input ("Please input values: "))
+#
+#product_ids = []
+#try:
+#    while int(product_id)<(len(products)):
+#        product_ids.append(int(product_id))
+#        product = input("Please input values: ")
+#    else:
+#        print("Please Choose Another Value or 'Quit'")
+#        product_id = input("Please input values: ")
+#        while int(product_id)<(len(products)):
+#            product_ids.append(int(product_id))
+#            product_id = input("Please input values: ")
+#        else:
+#            print("Please Choose Another Value or 'Quit'")
+#except ValueError:
+#    #print(user_choice)
+#    root=Tk()
+#    root.geometry('300x200')
+#    Store_Name = Label(None, text='Fake Groceries').pack()
+#    Store_Number = Label(None, text='xxx-xxx-xxxx').pack()
+#    Date_Time = Label(None, text=now.isoformat()).pack()
+#    Items_Price = Label(None, text='xxx-xxx-xxxx').pack()
+#    Sub_Total = Label(None, text="Total: " + 'temp').pack()
+#    Tax = Label(None, text="Total: " + 'temp').pack()
+#    Total = Label(None, text="Total: " + 'temp').pack()
+#    End_Message = Label(None, text='Thank You').pack()
+#    root.mainloop()
+#    
 
 
 
